@@ -1,5 +1,6 @@
 import yaml
 import os
+import numpy as np
 from problem_generator import generate_addition_problems, generate_multiplication_problems
 from latex_writer import write_problems_to_latex
 
@@ -10,6 +11,11 @@ def main(config_path):
     output_type = config.get('type', 'latex')
     output_file = config.get('output_file', 'output/problems')
     font_size = config.get('font_size', 'normalsize')
+    seed = config.get('seed')
+
+    # Set the seed for reproducibility
+    if seed is not None:
+        np.random.seed(seed)
 
     all_problems = []
 
