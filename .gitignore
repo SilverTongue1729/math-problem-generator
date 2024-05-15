@@ -1,10 +1,4 @@
-
-output/*.aux
-output/*.fdb_latexmk
-output/*.fls
-output/*.log
-output/*.gz
-
+output/*
 __pycache__/*
 
 # Byte-compiled / optimized / DLL files
