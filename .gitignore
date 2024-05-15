@@ -5,6 +5,8 @@ output/*.fls
 output/*.log
 output/*.gz
 
+# __pycache__/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
