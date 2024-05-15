@@ -26,7 +26,7 @@ def write_problems_to_latex(problems, filename, font_size='normalsize'):
                     row.append(problem_str)
                 else:
                     row.append('')
-            table_content.append(" & ".join(row) + " \\\\")
+            table_content.append("& ".join(row) + " \\\\")
         
         table_latex = "\\begin{tabularx}{\\textwidth}{>{\\centering\\arraybackslash}X>{\\centering\\arraybackslash}X>{\\centering\\arraybackslash}X>{\\centering\\arraybackslash}X}\n" + "\n".join(table_content) + "\n\\end{tabularx}"
 
