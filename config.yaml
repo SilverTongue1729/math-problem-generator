@@ -1,0 +1,6 @@
+type: latex
+output_file: output/problems
+font_size: Large   # You can specify any LaTeX font size here, like 'Large', 'small', 'large', 'tiny', etc.
+problems:  # [operator, number of problems, min, max]
+  - ['+', 20, 1, 10]
+  - ['*', 10, 1, 10]
