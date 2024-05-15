@@ -1,3 +1,4 @@
+import os
 from pylatex import Document, Section, NoEscape, Command
 
 def write_problems_to_latex(problems, filename, font_size='normalsize'):
@@ -31,5 +32,9 @@ def write_problems_to_latex(problems, filename, font_size='normalsize'):
         table_latex = "\\begin{tabularx}{\\textwidth}{>{\\centering\\arraybackslash}X>{\\centering\\arraybackslash}X>{\\centering\\arraybackslash}X>{\\centering\\arraybackslash}X}\n" + "\n".join(table_content) + "\n\\end{tabularx}"
 
         doc.append(NoEscape(table_latex))
+    
+    # if filename path doesn't exist, create it
+    if not os.path.exists(os.path.dirname(filename)):
+        os.makedirs(os.path.dirname(filename))
     
     doc.generate_pdf(filename, clean_tex=False)
