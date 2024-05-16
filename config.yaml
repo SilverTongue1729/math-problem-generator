@@ -1,7 +1,10 @@
 type: latex
 output_file: output/problems
-font_size: Large   # You can specify any LaTeX font size here, like 'Large', 'small', 'large', 'tiny', etc.
-seed: 42
-problems:  # [operator, number of problems, min, max]
-  - ['+', 20, 1, 10]
-  - ['*', 10, 1, 10]
+font_size: Large # You can specify any LaTeX font size here, like 'Large', 'small', 'large', 'tiny', etc.
+title: Math Problems
+columns: 4
+vertical_spacing: 1.5
+seed: # Leave empty for random problems
+problems: # [operator, number of problems, min, max]
+  - ["+", 10, 1, 10]
+  - ["*", 10, 1, 10]

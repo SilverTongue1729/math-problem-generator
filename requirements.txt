@@ -1,4 +1,3 @@
 numpy
 pylatex
 pyyaml
-tk

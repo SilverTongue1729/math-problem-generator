@@ -34,17 +34,23 @@ The `config.yaml` file specifies the type of output, output file, and a list of 
 ```yaml
 type: latex
 output_file: output/problems
-font_size: Large
-seed: None
-problems:
-  - ['+', 10, 1, 10]
-  - ['*', 10, 1, 10]
+font_size: Large # You can specify any LaTeX font size here, like 'Large', 'small', 'large', 'tiny', etc.
+title: Math Problems
+columns: 4
+vertical_spacing: 1.5
+seed: 42 # Leave empty for random problems 
+problems: # [operator, number of problems, min, max]
+  - ["+", 10, 1, 10]
+  - ["*", 10, 1, 10]
 ```
 
 - `type`: Specifies the output type (`latex` for now, more types can be added later).
 - `output_file`: The file path where the output will be saved.
 - `font_size`: The font size for the LaTeX document (e.g., `normalsize`, `Large`, `small`).
-- `seed`: The seed for the random number generator. If `None`, a random seed will be used.
+- `title`: The title of the document.
+- `columns`: The number of columns in the LaTeX document.
+- `vertical_spacing`: The vertical spacing between problems in the LaTeX document.
+- `seed`: The seed for the random number generator. If empty, a random seed will be used.
 - `problems`: A list of problem configurations where each configuration is a tuple containing:
   - The symbol (`+` for addition, `*` for multiplication).
   - The number of problems.

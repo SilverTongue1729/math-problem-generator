@@ -1,7 +1,7 @@
 import yaml
 import os
 import numpy as np
-from problem_generator import generate_addition_problems, generate_multiplication_problems
+from problem_generator import generate_problems
 from latex_writer import write_problems_to_latex
 
 def main(config_path):
@@ -10,30 +10,23 @@ def main(config_path):
 
     output_type = config.get('type', 'latex')
     output_file = config.get('output_file', 'output/problems')
-    font_size = config.get('font_size', 'normalsize')
-    seed = config.get('seed')
+    font_size = config.get('font_size', 'Large')
+    num_columns = config.get('columns', 4)
+    title = config.get('title', 'Math Problems')
+    array_stretch = config.get('vertical_spacing', 1.5)
+    seed = config.get('seed', None)
 
-    # Set the seed for reproducibility
     if seed is not None:
         np.random.seed(seed)
 
     all_problems = []
 
     for problem_config in config.get('problems', []):
-        symbol = problem_config[0]
-        num_problems = problem_config[1]
-        lower_bound = problem_config[2]
-        upper_bound = problem_config[3]
-
-        if symbol == '+':
-            problems = generate_addition_problems(num_problems, lower_bound, upper_bound)
-        elif symbol == '*':
-            problems = generate_multiplication_problems(num_problems, lower_bound, upper_bound)
-        
+        problems = generate_problems(problem_config)        
         all_problems.extend(problems)
 
     if output_type == 'latex':
-        write_problems_to_latex(all_problems, output_file, font_size)
+        write_problems_to_latex(all_problems, output_file, font_size, num_columns, array_stretch, title)
 
 if __name__ == "__main__":
     import argparse
